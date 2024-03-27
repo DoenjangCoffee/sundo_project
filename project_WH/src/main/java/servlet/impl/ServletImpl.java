@@ -1,5 +1,6 @@
 package servlet.impl;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +38,12 @@ public class ServletImpl extends EgovAbstractServiceImpl implements ServletServi
 	public List<Map<String, Object>> bjd(String gu) {
 		return dao.selectList("bjd", gu);
 	}
+
+	@Override
+	public void fileUp(List<Map<String, Object>> list) {
+			dao.insert("fileUp", list);
+		}
+		
 
 	
 

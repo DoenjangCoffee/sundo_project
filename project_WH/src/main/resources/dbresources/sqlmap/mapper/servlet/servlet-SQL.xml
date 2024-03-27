@@ -25,4 +25,9 @@
 	<select id="bjd" resultType="map" parameterType="String">
 		select  bjd_nm, bjd_cd from tl_bjd where sgg_cd like concat(#{gu},'%');
 	</select>
+	<insert id="fileUp" parameterType="list">
+		<foreach collection="list" item="file" separator=";" >
+			INSERT INTO lee(site, sgg_cd, bjd_cd, usekwh) VALUES (#{file.site}, #{file.sgg_cd}, #{file.bjd_cd}, #{file.usekwh})
+		</foreach>
+	</insert>
 </mapper>
