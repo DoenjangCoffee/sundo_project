@@ -1,6 +1,7 @@
 package servlet.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -21,4 +22,23 @@ public class ServletImpl extends EgovAbstractServiceImpl implements ServletServi
 		List<EgovMap> mediaType = dao.selectAll();
 		return str + " -> testImpl ";
 	}
+
+	@Override
+	public List<Map<String, Object>> si() {
+		return dao.selectList("si");
+	}
+
+	@Override
+	public List<Map<String, Object>> sgg(String sido) {
+		return dao.selectList("sgg",sido);
+	}
+
+	@Override
+	public List<Map<String, Object>> bjd(String gu) {
+		return dao.selectList("bjd", gu);
+	}
+
+	
+
+
 }

@@ -12,4 +12,17 @@
 				1=1
 		]]>
 	</select>
+	
+	<select id="si" resultType="map">
+		SELECT sd_nm, sd_cd, ST_X(ST_Centroid(ST_Transform(geom, 4326))) AS xgeom,
+ 		ST_Y(ST_Centroid(ST_Transform(geom, 4326))) AS ygeom FROM tl_sd;
+	</select>
+	
+	<select id="sgg" resultType="map" parameterType="String">
+		select substring(sgg_nm from position(' ' in sgg_nm) + 1) as sgg_nm, sgg_cd from tl_sgg where sgg_cd like concat(#{sido},'%');
+	</select>
+	
+	<select id="bjd" resultType="map" parameterType="String">
+		select  bjd_nm, bjd_cd from tl_bjd where sgg_cd like concat(#{gu},'%');
+	</select>
 </mapper>
