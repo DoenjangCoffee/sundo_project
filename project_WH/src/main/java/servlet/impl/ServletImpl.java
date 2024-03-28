@@ -43,6 +43,12 @@ public class ServletImpl extends EgovAbstractServiceImpl implements ServletServi
 	public void fileUp(List<Map<String, Object>> list) {
 			dao.insert("fileUp", list);
 		}
+
+	@Override
+	public void deleteDB() {
+		dao.delete("deleteDB");
+		
+	}
 		
 
 	

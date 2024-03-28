@@ -61,8 +61,10 @@ public class ServletController {
 		return "main/upLoad";
 	}
 	
-	@RequestMapping(value = "/upfile.do",method = RequestMethod.POST)
+	@RequestMapping(value = "/upfile.do", method = RequestMethod.POST)
 	public @ResponseBody void upload(@RequestParam("uFile") MultipartFile upfile) throws IOException {
+		servletService.deleteDB();
+		
 		System.out.println(upfile.getName());
 		System.out.println(upfile.getContentType());
 		System.out.println(upfile.getSize());

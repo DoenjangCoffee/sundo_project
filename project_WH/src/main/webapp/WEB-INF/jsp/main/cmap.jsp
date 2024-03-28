@@ -10,10 +10,16 @@
 <!-- bootstarp -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style type="text/css">
+a{
+	color:black;
+	text-decoration: none;
+}
+</style>
 </head>
 <script type="text/javascript">
-let wms;
-let sgg;
+var wms;
+var sgg;
 $(document).ready(function(){
 
     $("#sido").change(function(){
@@ -43,7 +49,7 @@ $(document).ready(function(){
                     var sgg = JSON.parse(data);
                     //alert(JSON.stringify(sgg));
                     var sggSelect = $("#gugun");
-                    sggSelect.html("<option>--시/군/구를 선택하세요--</option>");
+                    sggSelect.html("<option>시/군/구를 선택</option>");
                     for(var i = 0; i < sgg.length; i++) {
                         var item = sgg[i];
                         
@@ -117,18 +123,31 @@ $(document).ready(function(){
             }
         });
     });
+    
+    $("#index").change(function(){
+    	
+    });
+    
+    
+    
 });
 </script>
 <body>
-   	 <select id="sido" name="sido" class="form-select">
+   	 <select id="sido" name="sido" class="form-select mb-2">
 		<option>시/도 선택</option>
    		<c:forEach items="${si }" var="e">
 			<option id="si" value="${e.sd_cd },${e.xgeom},${e.ygeom}">${e.sd_nm}</option>
 		</c:forEach>
 	</select>
 		
-	<select id="gugun" name="gugun" class="form-select">
-		<option>--시/군/구를 선택하세요--</option>
+	<select id="gugun" name="gugun" class="form-select mb-2">
+		<option>시/군/구 선택</option>
+	</select>
+	
+	<select id="index" class="form-select mb-2">
+		<option>범례 선택</option>
+		<option>등간격</option>
+		<option>Natural Break</option>
 	</select>
 </body>
 </html>

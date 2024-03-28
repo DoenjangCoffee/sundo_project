@@ -30,4 +30,9 @@
 			INSERT INTO lee(site, sgg_cd, bjd_cd, usekwh) VALUES (#{file.site}, #{file.sgg_cd}, #{file.bjd_cd}, #{file.usekwh})
 		</foreach>
 	</insert>
+	
+	<delete id="deleteDB">
+		DELETE FROM lee;
+	</delete>
+	
 </mapper>

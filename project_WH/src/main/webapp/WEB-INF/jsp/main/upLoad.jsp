@@ -5,17 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>업로드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 </head>
 <script type="text/javascript">
 	$(function(){
 		$("#up").click(function(){
 			var fileType = $("#uploadFile").val().split(".").pop(); // 파일 형식 추출하기
-			alert(fileType);
+
 			var formData = new FormData();
-			formData.append("uFile",$("uploadFile")[0].files[0]);
+			formData.append("uFile",$("#uploadFile")[0].files[0]);
 			
 			if ($.inArray(fileType,['txt']) == -1) {
-				alert(".txt 파일만 업로드 할 수 있다.");
+				Swal.fire({
+					   title: '.txt 확장자만 업로드 가능',
+					   icon: 'error',
+				});
 				$("#uploadFile").val("");
 				return false;
 			}
@@ -32,7 +37,7 @@
 				},
 	             success : function() {
 	                 $('#uploadtext').text("업로드 완료");
-	                 setTimeout(timeout,5000);
+	                 setTimeout(timeout,2000);
 				}
 			}); // ajax end
 			

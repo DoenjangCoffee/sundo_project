@@ -13,4 +13,6 @@ public interface ServletService {
 	List<Map<String, Object>> bjd(String gu);
 
 	void fileUp(List<Map<String, Object>> list);
+
+	void deleteDB();
 }

@@ -22,6 +22,21 @@
 <!-- bootstarp -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+<style type="text/css">
+#menu:hover {
+background-color: burlywood; /* 배경색 변경 */
+color: #333; /* 글자색 변경 */
+}
+#menu{
+cursor:pointer;
+}
+a{
+	color:black;
+	text-decoration: none;
+}
+</style>
+
 <script type="text/javascript">
 let map;
 
@@ -108,28 +123,25 @@ function updateSido(sido){
         <div class="col-md-4 d-flex flex-column">
             <div class="row">
                 <div class="col-md-12 border border-dark">
-                    <div class="text-center p-3 " style="height: 50px;">탄소 공간지도 시스템</div>
+                    <div class="text-center bold fs-4" style="height: 50px;">탄소 공간지도 시스템</div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 border border-dark border-end-0 border-top-0">
-                    <ul class="nav">
-                        <li class="nav-item align-middle">
-                            <a id="cMap"class="nav-link" href="#">탄소지도</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="upLoad" class="nav-link" href="#">데이터 삽입</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="statistic" class="nav-link" href="#">통계</a>
-                        </li>
-                    </ul>
+                <div class="col-md-3 border border-dark border-end-0 border-top-0 p-0">
+                    <div>
+                        <div class="align-middle border-bottom border-dark py-2" id="menu">
+                            <a id="cMap" class="m-3 p-2"><i class="bi bi-geo-alt fs-5 pe-1"></i>탄소지도</a>
+                        </div>
+                        <div class="align-middle border-bottom border-dark py-2" id="menu">
+                            <a id="upLoad" class="m-3 p-1"><i class="bi bi-upload fs-5 pe-1"></i>데이터 삽입</a>
+                        </div>
+                        <div class="align-middle border-bottom border-dark py-2" id="menu">
+                            <a id="statistic" class="m-3 p-2"><i class="bi bi-bar-chart-line fs-5 pe-1"></i>통계</a>
+                        </div>
+                    </div>
                 </div>
-                <div id = "views" class="col-md-9 p-3 border border-dark border-top-0" style="height: 915.5px;">
+                <div id = "views" class="col-md-9 p-3 fs-4 bold border border-dark border-top-0" style="height: 915.5px;">
 					메뉴를 선택해주세요
-<!-- 				<select id="dong">
-						<option>--덩 선택해주세요--</option>
-					</select> -->
                 </div>
             </div>
         </div>
