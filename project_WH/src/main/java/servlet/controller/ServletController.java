@@ -13,7 +13,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -100,7 +99,9 @@ public class ServletController {
 	}
 	
 	@RequestMapping(value = "/statistic.do", method = RequestMethod.GET)
-	public String statistic() {
+	public String statistic(Model model) {
+		List<Map<String, Object>>si	= servletService.si();
+		model.addAttribute("si", si);
 		return "main/statistic";
 	}
 	
